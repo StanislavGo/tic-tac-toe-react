@@ -9,11 +9,15 @@ export default function Board() {
   const [xIsNext, setXIsNext] = useState(true);
 
   function handleClick(i) {
+    if(squares[i]) {
+      return;
+    }
+
     const nextSquare = squares.slice();
     if(xIsNext) {
       nextSquare[i] = "X";
     } else {
-      nextSquare[i] = "Y";
+      nextSquare[i] = "O";
     }
     setSquares(nextSquare);
     setXIsNext(!xIsNext);
